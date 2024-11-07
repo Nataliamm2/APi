@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "8a785e14-4ee8-4843-9564-45af8b492c2e",
+		"name": "Insight",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Requisições Recebidas",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// const postRequest = {",
+							"//   url: 'https://detectaflow-hint.auth.sa-east-1.amazoncognito.com/oauth2/token',",
+							"//   method: 'POST',",
+							"//   timeout: 0,",
+							"//   header: {",
+							"//     \"Content-Type\": \"application/x-www-form-urlencoded\",",
+							"//     \"Authorization\": \"Basic MmVnOWw4ODdwbW11Mjg4ZTRra3VxbnA1MWQ6MXExbXRmYjRwYXI5M3N2bXBwczI3MjJvbzR1MTU3NXYzdmg3ODZydGM4dHZzN3ZuZnA5cg\"",
+							"//   },",
+							"//   body: {",
+							"//     mode: 'urlencoded',",
+							"//     urlencoded: [",
+							"//         {key: \"grant_type\", value: \"client_credentials\"}",
+							"//     ]}",
+							"// };",
+							"// pm.sendRequest(postRequest, function (err, res) {",
+							"//      if (err) { ",
+							"//             console.log(err);",
+							"//      }",
+							"//     var responseJson = res.json();",
+							"//     console.log(responseJson);",
+							"//     pm.environment.set('accessToken', responseJson['access_token']);",
+							"// })",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localHost}}/requisicoes/recebidas",
+					"host": [
+						"{{localHost}}"
+					],
+					"path": [
+						"requisicoes",
+						"recebidas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Requisições Recebidas por categoria",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"confirmacaoRequisicaoSemAnexos\": true,\n  \"clienteReclamante\": {\n    \"nome\": \"José Paulo Teixeira\",\n    \"cpfCnpj\": \"77679574200\",\n    \"dataReclamacao\": \"2004-04-01T03:00:00.000Z\",\n    \"numeroProtocolo\": \"12345676HG\",\n    \"uf\": \"RO\",\n    \"municipio\": \"1100015\"\n  },\n  \"transacoes\": [\n    {\n      \"canalAtendimento\": \"1\",\n      \"produto\": \"1\",\n      \"condicaoTransacao\": {\n        \"comAcaoJudicial\": false\n      },\n      \"tipoRequisicao\": \"62421f444e56a22a7fda004f\",\n      \"tipoEnvolvido\": \"fraudador\",\n      \"motivo\": \"1\",\n      \"pix\": {\n        \"valorTransacao\": 200,\n        \"dataHoraTransacao\": \"2022-12-15T03:30:00.000Z\",\n        \"descricaoCaso\": \"Exemplo de descrição do caso com mais de 20 caracteres,\",\n        \"idTransacao\": \"E0000000020230320164418618939533\",\n        \"chave\": \"6f81ca13-dfab-11ed-bea5-0242ac120002\",\n        \"tipoChave\": \"643ff8692db9e78b62367e11\",\n        \"idRelatoInfracao\": \"6f81ca13-dfab-11ed-bea5-0242ac120002\",\n        \"idSolicitacaoDevolucao\": \"6f81ca31-dfab-11ed-b5e5-0242ac120002\"\n      },\n      \"clienteDestinatario\": {\n        \"nome\": \"Jaqueline Cruvinel\",\n        \"cpfCnpj\": 77679574200,\n        \"tipoConta\": \"6256ca852bd1a17ab3c6b432\",\n        \"agencia\": \"1111\",\n        \"numeroConta\": \"1111\"\n      }\n    },\n    {\n      \"canalAtendimento\": \"1\",\n      \"produto\": \"1\",\n      \"condicaoTransacao\": {\n        \"comAcaoJudicial\": false\n      },\n      \"tipoRequisicao\": \"62421f444e56a22a7fda004f\",\n      \"tipoEnvolvido\": \"fraudador\",\n      \"motivo\": \"1\",\n      \"pix\": {\n        \"valorTransacao\": 200,\n        \"dataHoraTransacao\": \"2022-12-15T03:30:00.000Z\",\n        \"descricaoCaso\": \"Exemplo de descrição do caso com mais de 20 caracteres,\",\n        \"idTransacao\": \"E0000000020230320164418618939533\",\n        \"chave\": \"6f81ca13-dfab-11ed-bea5-0242ac120002\",\n        \"tipoChave\": \"643ff8692db9e78b62367e11\",\n        \"idRelatoInfracao\": \"6f81ca13-dfab-11ed-bea5-0242ac120002\",\n        \"idSolicitacaoDevolucao\": \"6f81ca31-dfab-11ed-b5e5-0242ac120002\"\n      },\n      \"clienteDestinatario\": {\n        \"nome\": \"Jorge Paulo\",\n        \"cpfCnpj\": 77679574200,\n        \"tipoConta\": \"6256ca852bd1a17ab3c6b432\",\n        \"agencia\": \"1111\",\n        \"numeroConta\": \"1111\"\n      }\n    }\n  ],\n  \"instituicaoDestinatariaIspb\": \"04391007\", \n  \"triagem\": false,\n  \"canalAtendimento\": \"URA\",\n  \"emailInstituicaoDestinatariaNaoCadastrada\": \"guilhermepizzaia7@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localHost}}/requisicoes/recebidas/categorias",
+					"host": [
+						"{{localHost}}"
+					],
+					"path": [
+						"requisicoes",
+						"recebidas",
+						"categorias"
+					],
+					"query": [
+						{
+							"key": "mesAno",
+							"value": "02-2024",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Volume financeiro",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const postRequest = {",
+							"  url: 'https://detectaflow-hint.auth.sa-east-1.amazoncognito.com/oauth2/token',",
+							"  method: 'POST',",
+							"  timeout: 0,",
+							"  header: {",
+							"    \"Content-Type\": \"application/x-www-form-urlencoded\",",
+							"    \"Authorization\": \"Basic MmVnOWw4ODdwbW11Mjg4ZTRra3VxbnA1MWQ6MXExbXRmYjRwYXI5M3N2bXBwczI3MjJvbzR1MTU3NXYzdmg3ODZydGM4dHZzN3ZuZnA5cg\"",
+							"  },",
+							"  body: {",
+							"    mode: 'urlencoded',",
+							"    urlencoded: [",
+							"        {key: \"grant_type\", value: \"client_credentials\"}",
+							"    ]}",
+							"};",
+							"pm.sendRequest(postRequest, function (err, res) {",
+							"     if (err) { ",
+							"            console.log(err);",
+							"     }",
+							"    var responseJson = res.json();",
+							"    console.log(responseJson);",
+							"    pm.environment.set('accessToken', responseJson['access_token']);",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localHost}}/volume-financeiro?anoMes=2024-03&paginaAtual=1&quantidade=5",
+					"host": [
+						"{{localHost}}"
+					],
+					"path": [
+						"volume-financeiro"
+					],
+					"query": [
+						{
+							"key": "anoMes",
+							"value": "2024-03"
+						},
+						{
+							"key": "paginaAtual",
+							"value": "1"
+						},
+						{
+							"key": "quantidade",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Requisições Recebidas por status",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"confirmacaoRequisicaoSemAnexos\": true,\n  \"clienteReclamante\": {\n    \"nome\": \"José Paulo Teixeira\",\n    \"cpfCnpj\": \"77679574200\",\n    \"dataReclamacao\": \"2004-04-01T03:00:00.000Z\",\n    \"numeroProtocolo\": \"12345676HG\",\n    \"uf\": \"RO\",\n    \"municipio\": \"1100015\"\n  },\n  \"transacoes\": [\n    {\n      \"canalAtendimento\": \"1\",\n      \"produto\": \"1\",\n      \"condicaoTransacao\": {\n        \"comAcaoJudicial\": false\n      },\n      \"tipoRequisicao\": \"62421f444e56a22a7fda004f\",\n      \"tipoEnvolvido\": \"fraudador\",\n      \"motivo\": \"1\",\n      \"pix\": {\n        \"valorTransacao\": 200,\n        \"dataHoraTransacao\": \"2022-12-15T03:30:00.000Z\",\n        \"descricaoCaso\": \"Exemplo de descrição do caso com mais de 20 caracteres,\",\n        \"idTransacao\": \"E0000000020230320164418618939533\",\n        \"chave\": \"6f81ca13-dfab-11ed-bea5-0242ac120002\",\n        \"tipoChave\": \"643ff8692db9e78b62367e11\",\n        \"idRelatoInfracao\": \"6f81ca13-dfab-11ed-bea5-0242ac120002\",\n        \"idSolicitacaoDevolucao\": \"6f81ca31-dfab-11ed-b5e5-0242ac120002\"\n      },\n      \"clienteDestinatario\": {\n        \"nome\": \"Jaqueline Cruvinel\",\n        \"cpfCnpj\": 77679574200,\n        \"tipoConta\": \"6256ca852bd1a17ab3c6b432\",\n        \"agencia\": \"1111\",\n        \"numeroConta\": \"1111\"\n      }\n    },\n    {\n      \"canalAtendimento\": \"1\",\n      \"produto\": \"1\",\n      \"condicaoTransacao\": {\n        \"comAcaoJudicial\": false\n      },\n      \"tipoRequisicao\": \"62421f444e56a22a7fda004f\",\n      \"tipoEnvolvido\": \"fraudador\",\n      \"motivo\": \"1\",\n      \"pix\": {\n        \"valorTransacao\": 200,\n        \"dataHoraTransacao\": \"2022-12-15T03:30:00.000Z\",\n        \"descricaoCaso\": \"Exemplo de descrição do caso com mais de 20 caracteres,\",\n        \"idTransacao\": \"E0000000020230320164418618939533\",\n        \"chave\": \"6f81ca13-dfab-11ed-bea5-0242ac120002\",\n        \"tipoChave\": \"643ff8692db9e78b62367e11\",\n        \"idRelatoInfracao\": \"6f81ca13-dfab-11ed-bea5-0242ac120002\",\n        \"idSolicitacaoDevolucao\": \"6f81ca31-dfab-11ed-b5e5-0242ac120002\"\n      },\n      \"clienteDestinatario\": {\n        \"nome\": \"Jorge Paulo\",\n        \"cpfCnpj\": 77679574200,\n        \"tipoConta\": \"6256ca852bd1a17ab3c6b432\",\n        \"agencia\": \"1111\",\n        \"numeroConta\": \"1111\"\n      }\n    }\n  ],\n  \"instituicaoDestinatariaIspb\": \"04391007\", \n  \"triagem\": false,\n  \"canalAtendimento\": \"URA\",\n  \"emailInstituicaoDestinatariaNaoCadastrada\": \"guilhermepizzaia7@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localHost}}/requisicoes/recebidas/status",
+					"host": [
+						"{{localHost}}"
+					],
+					"path": [
+						"requisicoes",
+						"recebidas",
+						"status"
+					],
+					"query": [
+						{
+							"key": "mesAno",
+							"value": "02-2024",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transações",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localHost}}/transacoes",
+					"host": [
+						"{{localHost}}"
+					],
+					"path": [
+						"transacoes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

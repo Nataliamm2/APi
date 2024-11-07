@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "6b08fc6e-8c9d-443c-b2ca-f690d9b592da",
+		"name": "Notificação",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Retorna Notificações",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{localNotHost}}/notificacoes",
+					"host": [
+						"{{localNotHost}}"
+					],
+					"path": [
+						"notificacoes"
+					],
+					"query": [
+						{
+							"key": "campoOrdenacao",
+							"value": "dataInclusao",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retorna Notificações Copy 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{localHost}}/notificacoes",
+					"host": [
+						"{{localHost}}"
+					],
+					"path": [
+						"notificacoes"
+					],
+					"query": [
+						{
+							"key": "campoOrdenacao",
+							"value": "dataInclusao",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retorna Notificações Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{notiHostHint}}/v2/notificacoes?paginaAtual=1&quantidade=1&campoOrdenacao=data&tipoOrdenacao=desc&lida=false",
+					"host": [
+						"{{notiHostHint}}"
+					],
+					"path": [
+						"v2",
+						"notificacoes"
+					],
+					"query": [
+						{
+							"key": "paginaAtual",
+							"value": "1"
+						},
+						{
+							"key": "quantidade",
+							"value": "1"
+						},
+						{
+							"key": "campoOrdenacao",
+							"value": "data"
+						},
+						{
+							"key": "tipoOrdenacao",
+							"value": "desc"
+						},
+						{
+							"key": "lida",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retorna requisicoes lote by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localHost}}/requisicoes/lotes/6335ae57572f654473c7173c",
+					"host": [
+						"{{localHost}}"
+					],
+					"path": [
+						"requisicoes",
+						"lotes",
+						"6335ae57572f654473c7173c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

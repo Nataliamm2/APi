@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "9f35ef02-f945-457c-99ce-bf0a972979a9",
+		"name": "quod",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get access token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "default"
+						},
+						{
+							"key": "client_id",
+							"value": "cY5t0kALZZfdrbHPiDqXYA02KHz1Nv",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "HUctox4twLPlfopKn6517dI3rVf9yj",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://hom-api.quodx.com.br/oauth/token",
+					"protocol": "https",
+					"host": [
+						"hom-api",
+						"quodx",
+						"com",
+						"br"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar fraude",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "HUctox4twLPlfopKn6517dI3rVf9yj",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "cY5t0kALZZfdrbHPiDqXYA02KHz1Nv",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"cnpjResponsavel\": \"44393564000107\",\n \"idEnvolvido\": 2,\n \"envCliente\": 0,\n \"idTipoDado\": 1,\n \"documento\": \"97533332008\",\n \"nomCompletoRsocial\":\"teste\",\n \"dtEvento\": \"13-10-2023\", \n \"fraudeConfirmada\": 1,\n \"idCanal\": 1,\n \"idProduto\": 5,\n \"idMeioTransacao\": 4,\n \"idMotivo\": 4,\n \"valor\": \"429.30\",\n \"detFlow\": 1,\n \"bancoDestino\": \"999\",\n \"agenciaDestino\": \"9999\",\n \"contaDestino\": \"99999999\",\n \"transactionId\": \"abcd123-344434-fdfdd-99990df\",\n \"cpfCnpj\": \"97533332008\",\n \"agenciaOrigem\": \"9999\",\n \"contaOrigem\": \"99999999\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hom-api.quodx.com.br/quodx/fraude/",
+					"protocol": "https",
+					"host": [
+						"hom-api",
+						"quodx",
+						"com",
+						"br"
+					],
+					"path": [
+						"quodx",
+						"fraude",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
